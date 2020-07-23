@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Don't check in documentation XML that gets generated into the source tree.
+Microsoft.Build.BogusDependencies.xml
+
 # User-specific files
 *.rsuser
 *.suo

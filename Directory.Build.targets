@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This targets file is included by Microsoft.Common.targets and is therefore included in each *proj file -->
+<Project>
+  <!-- Lets us use a single Packages.props to manage package versions in one place.
+       https://github.com/Microsoft/MSBuildSdks/tree/master/src/CentralPackageVersions -->
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" />
+
+  <!--
+    Clear GenerateCompiledExpressionsTempFilePathForEditing out to avoid running the GenerateCompiledExpressionsTempFile target, which creates
+    TemporaryGeneratedFile_* files when building in VS. These temp files would be missing after a command-line build since it's guarded by the
+    BuildingInsideVisualStudio and cause VS to think the project is out of date. These temp files are always empty (why?), so do not actually matter.
+    For details, see: %MSBuildFrameworkToolsPath%\Microsoft.WorkflowBuildExtensions.targets
+  -->
+  <PropertyGroup>
+    <GenerateCompiledExpressionsTempFilePathForEditing></GenerateCompiledExpressionsTempFilePathForEditing>
+  </PropertyGroup>
+</Project>

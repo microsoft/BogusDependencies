@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Microsoft.Build.BogusDependencies</AssemblyName>
+    <RootNamespace>Microsoft.Build.BogusDependencies</RootNamespace>
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <Version>0.1.0.0</Version>
+    <PackageReleaseNotes>Initial release for testing integration with experimental C# compiler support.</PackageReleaseNotes>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+    <Company>Microsoft</Company>
+    <Copyright>Copyright (c) Microsoft Corporation.</Copyright>
+    <Description>Microsoft Bogus Dependency Analyzer</Description>
+    <Product>Microsoft Open Source</Product>
+    <Authors>Microsoft</Authors>
+    <Description>BogusDependencies provides common code for analyzing C# compiler and C++ linker outputs to determine which inputs are not actually necessary to building the final output. These bogus dependencies can then be surfaced in tooling to feed back to developers to help reduce package and project-to-project references, reducing the build dependency graph and processing time to reduce overall build time.</Description>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/microsoft/BogusDependencies</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/microsoft/BogusDependencies.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>MSBuild dependency dependencies graph packages C# CSC MSVC link</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,37 @@
+<Project>
+  <PropertyGroup>
+    <EnlistmentRoot>$(MSBuildThisFileDirectory.TrimEnd('\\'))</EnlistmentRoot>
+    <PackageRoot>$(MSBuildThisFileDirectory)packages\</PackageRoot>
+    <LangVersion>latest</LangVersion>
+    <DistribRoot>$(MSBuildThisFileDirectory)distrib\$(Configuration)\</DistribRoot>
+
+    <!-- By default break the build on warnings -->
+    <TreatWarningsAsErrors Condition="'$(TreatWarningsAsErrors)' == ''">true</TreatWarningsAsErrors>
+
+    <!-- Common signing key for all assemblies -->
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)build\BogusDeps.snk</AssemblyOriginatorKeyFile>
+
+    <!-- StyleCop -->
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)StyleCop.ruleset</CodeAnalysisRuleSet>
+
+    <!-- Disable transitive project references so the build with and without /graph is the same -->
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+  </PropertyGroup>
+
+  <!-- Enable CentralPackageVersions for .vcxproj even though PackageReference isn't officially supported. -->
+  <PropertyGroup Condition="'$(MSBuildProjectExtension)' == '.vcxproj'">
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <EnableCentralPackageVersions>true</EnableCentralPackageVersions>
+    <TargetFramework>native</TargetFramework>
+    <ResolveNuGetPackages>false</ResolveNuGetPackages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- StyleCop, Roslyn analyzers -->
+    <PackageReference Include="StyleCop.Analyzers" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" />
+  </ItemGroup>
+
+</Project>
