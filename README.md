@@ -3,12 +3,12 @@ BogusDependencies provides common code for analyzing C# compiler and C++ linker 
 This repo was created for Microsoft Hackathon 2020.
 
 ## C++ Bogus Dependencies
-The Microsoft C++ Linker includes a flag [/VERBOSE:UNUSEDLIBS)(https://docs.microsoft.com/en-us/cpp/build/reference/verbose-print-progress-messages?redirectedfrom=MSDN&view=vs-2019) that writes additional information to stdout about .lib files that were unused.
+The Microsoft C++ Linker includes a flag [/VERBOSE:UNUSEDLIBS)(https://docs.microsoft.com/en-us/cpp/build/reference/verbose-print-progress-messages?redirectedfrom=MSDN&view=vs-2019) that writes additional information to stdout about .lib files that were unused. A similar flag `/VERBOSE:UNUSEDDELAYLOAD` can point to delay-load DLL references whose code was unused.
 
 ## C# Bogus Dependencies
 An experimental branch of the Roslyn compiler repo includes a feature, Used Assembly References, that allows bogus dependency detection. See the [issue](https://github.com/dotnet/roslyn/issues/37768) and the [branch](https://github.com/dotnet/roslyn/tree/features/UsedAssemblyReferences). New feature documentation in the branch is [here](https://github.com/dotnet/roslyn/blob/features/UsedAssemblyReferences/docs/features/UsedAssemblyReferences.md).
 
-The feature in the branch exposes a new Roslyn analyzer API, `GetUsedAssemblyReferences`, to allow retrieving the assemblies that were actually used in generating the compilation output. Subtracting that list from the list of input assemblies to compilation results in bogus assembly inputs.
+The feature exposes a new Roslyn analyzer API, `GetUsedAssemblyReferences`, to allow retrieving the assemblies that were actually used in generating the compilation output. Subtracting that list from the list of compiler input assemblies results in bogus assembly inputs.
 
 ## Making Use of Bogus Dependency Information
 For each bogus input, mapping to the source of the input can find one of:
