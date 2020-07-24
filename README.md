@@ -17,5 +17,8 @@ For each bogus input, mapping to the source of the input can find one of:
 * An unneeded package reference, e.g. to a [Vcpkg](https://github.com/microsoft/vcpkg) C++ package or NuGet .NET package. This reduces compile/link I/O and CPU but does not change the build dependency graph. If this is the last such package reference, the package could be removed as a dependency of the repo, reducing build prep time by eliminating package pull requests.
 * An unneeded C++ SDK library reference that could be cut, reducing link I/O and CPU.
 
+## Related Work
+https://github.com/dfederm/ReferenceTrimmer wraps an MSBuild execution and compares the assemblies pulled forward by RAR (MSBuild ResolveAssemblyReferences) to those referenced from proj-to-proj and package references, and recommends removals. The work in this repo can be combined with that work to make its recommendations much more robust, as without the Roslyn feature noted above, the compiler and RAR will leave behind referenced assemblies where only const values or interfaces were used, resulting in broken builds where packages or ProjectReferences were removed unnecessarily.
+
 # Contributing
 See [Contributing.md](./Contributing.md).
