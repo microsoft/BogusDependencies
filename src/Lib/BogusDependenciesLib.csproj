@@ -5,7 +5,7 @@
     <RootNamespace>Microsoft.Build.BogusDependencies</RootNamespace>
     <TargetFramework>netstandard2.0</TargetFramework>
 
-    <Version>0.1.0.0</Version>
+    <Version>0.1.0.0-pre</Version>
     <PackageReleaseNotes>Initial release for testing integration with experimental C# compiler support.</PackageReleaseNotes>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -43,6 +43,7 @@
       <PackagePath></PackagePath>
     </None>
     <None Update="tools\*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+    <None Update="build\*.props" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <Target Name="_AddAnalyzersToOutput">
