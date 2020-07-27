@@ -10,4 +10,8 @@
     <PackageReference Include="MSTest.TestFramework" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Lib\BogusDependenciesLib.csproj" />
+  </ItemGroup>
+
 </Project>
