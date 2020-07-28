@@ -1,4 +1,5 @@
 <Project>
     <PropertyGroup>
+        <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
     </PropertyGroup>
 </Project>
