@@ -1,0 +1,14 @@
+# Don't know why this is not the default yet in 2019....
+/MaxCPUCount
+
+# Fail the build if there is a file lock on a running project, don't hide it in the crowd.
+/warnaserror:MSB3026
+
+# Reduce the amount of crud on the console, especially since it can't be resized in msbuild...
+/ConsoleLoggerParameters:Verbosity=Minimal;Summary;ForceNoAlign
+
+# Enable static graph NuGet restore optimization (if available).
+/p:RestoreUseStaticGraphEvaluation=true
+
+# Enable static graph build.
+/graph
