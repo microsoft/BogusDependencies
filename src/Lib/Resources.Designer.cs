@@ -61,7 +61,7 @@ namespace Microsoft.Build.BogusDependencies {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Projects should have only non-spurious dependencies.
+        ///   Looks up a localized string similar to Projects should declare only non-spurious dependencies.
         /// </summary>
         internal static string AnalyzerDescription {
             get {
@@ -70,7 +70,7 @@ namespace Microsoft.Build.BogusDependencies {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Project {0} constains spurious references {1}.
+        ///   Looks up a localized string similar to Project {0} declares {1} spurious references:{2}.
         /// </summary>
         internal static string AnalyzerMessageFormat {
             get {

@@ -4,6 +4,7 @@
     <PackageRoot>$(MSBuildThisFileDirectory)packages\</PackageRoot>
     <LangVersion>latest</LangVersion>
     <DistribRoot>$(MSBuildThisFileDirectory)distrib\$(Configuration)\</DistribRoot>
+    <Deterministic>true</Deterministic>
 
     <!-- By default break the build on warnings -->
     <TreatWarningsAsErrors Condition="'$(TreatWarningsAsErrors)' == ''">true</TreatWarningsAsErrors>
@@ -29,8 +30,8 @@
 
   <ItemGroup>
     <!-- StyleCop, Roslyn analyzers -->
-    <PackageReference Include="StyleCop.Analyzers" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" />
+    <PackageReference Include="StyleCop.Analyzers" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" PrivateAssets="All" />
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" />
   </ItemGroup>
 
