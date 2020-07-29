@@ -4,4 +4,4 @@
 ### New Rules
 Rule ID | Category | Severity | Notes
 --------|----------|----------|--------------------
-RE0001 | References | Info | UsedAssemblyReferencesAnalyzerAnalyzer
+RE0001 | References | Warning | UsedAssemblyReferencesAnalyzerAnalyzer

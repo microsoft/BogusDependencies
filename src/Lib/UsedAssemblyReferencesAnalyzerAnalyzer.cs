@@ -28,7 +28,8 @@ namespace Microsoft.Build.BogusDependencies.Analyzers.UsedAssemblyReferencesAnal
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.AnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.AnalyzerDescription), Resources.ResourceManager, typeof(Resources));
-        private static readonly string OutputDelimiter = Environment.NewLine + "\t";
+        private static readonly string AnalyzerOutputFileName = $"{Path.DirectorySeparatorChar}analyzer_unused_references.txt";
+        private const string OutputDelimeter = ",";
         private const string Category = "References";
 
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: Description);
@@ -67,7 +68,7 @@ namespace Microsoft.Build.BogusDependencies.Analyzers.UsedAssemblyReferencesAnal
             IEnumerable<MetadataReference> references = compilation.References;
             IEnumerable<MetadataReference> usedReferences = compilation.GetUsedAssemblyReferences();
 
-            HashSet<string> unusedRefNames = new HashSet<string>(references.Select(reference => reference.Display), StringComparer.OrdinalIgnoreCase);
+            var unusedRefNames = new HashSet<string>(references.Select(reference => reference.Display), StringComparer.OrdinalIgnoreCase);
             unusedRefNames.ExceptWith(usedReferences.Select(reference => reference.Display));
 
             if (unusedRefNames.Count > 0)
@@ -84,7 +85,18 @@ namespace Microsoft.Build.BogusDependencies.Analyzers.UsedAssemblyReferencesAnal
                     }
                 }
 
-                context.ReportDiagnostic(Diagnostic.Create(Rule, location, nameOrPath, unusedRefNames.Count, OutputDelimiter + string.Join(OutputDelimiter, unusedRefNames)));
+                AdditionalText analyzerOutputFile = context.Options.AdditionalFiles
+                    .FirstOrDefault(file => file.Path.EndsWith(AnalyzerOutputFileName, StringComparison.OrdinalIgnoreCase));
+                if (analyzerOutputFile != null)
+                {
+                    // if the additional file was passed to csc.exe, use it to dump the values
+                    File.WriteAllLines(analyzerOutputFile.Path, unusedRefNames);
+                }
+                else
+                {
+                    // use the default reporting API in case the file was not passed to csc.exe
+                    context.ReportDiagnostic(Diagnostic.Create(Rule, location, nameOrPath, unusedRefNames.Count, string.Join(OutputDelimeter, unusedRefNames)));
+                }
             }
         }
     }
