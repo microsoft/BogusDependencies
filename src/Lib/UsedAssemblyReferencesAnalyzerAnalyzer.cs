@@ -89,6 +89,7 @@ namespace Microsoft.Build.BogusDependencies.Analyzers.UsedAssemblyReferencesAnal
                     .FirstOrDefault(file => file.Path.EndsWith(AnalyzerOutputFileName, StringComparison.OrdinalIgnoreCase));
                 if (analyzerOutputFile != null)
                 {
+                    Directory.CreateDirectory(Path.GetDirectoryName(analyzerOutputFile.Path));
                     // if the additional file was passed to csc.exe, use it to dump the values
                     File.WriteAllLines(analyzerOutputFile.Path, unusedRefNames);
                 }
