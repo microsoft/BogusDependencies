@@ -28,7 +28,7 @@ namespace Microsoft.Build.BogusDependencies.Analyzers.UsedAssemblyReferencesAnal
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString MessageFormat = new LocalizableResourceString(nameof(Resources.AnalyzerMessageFormat), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString Description = new LocalizableResourceString(nameof(Resources.AnalyzerDescription), Resources.ResourceManager, typeof(Resources));
-        private static readonly string OutputDelimeter = Environment.NewLine + "\t";
+        private static readonly string OutputDelimiter = Environment.NewLine + "\t";
         private const string Category = "References";
 
         private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, Title, MessageFormat, Category, DiagnosticSeverity.Warning, isEnabledByDefault: true, description: Description);
@@ -84,7 +84,7 @@ namespace Microsoft.Build.BogusDependencies.Analyzers.UsedAssemblyReferencesAnal
                     }
                 }
 
-                context.ReportDiagnostic(Diagnostic.Create(Rule, location, nameOrPath, unusedRefNames.Count, OutputDelimeter + string.Join(OutputDelimeter, unusedRefNames)));
+                context.ReportDiagnostic(Diagnostic.Create(Rule, location, nameOrPath, unusedRefNames.Count, OutputDelimiter + string.Join(OutputDelimiter, unusedRefNames)));
             }
         }
     }
