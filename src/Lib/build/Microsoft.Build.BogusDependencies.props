@@ -1,5 +1,5 @@
 <Project>
-  <ItemGroup>
+  <ItemGroup Condition=" '$(CloudBuildAnalyzersOutputDir)' != '' ">
     <!-- https://github.com/dotnet/roslyn/blob/master/docs/analyzers/Using%20Additional%20Files.md -->
     <AdditionalFiles Include="$(CloudBuildAnalyzersOutputDir)\analyzer_unused_references.txt" />
   </ItemGroup>
