@@ -4,7 +4,7 @@
     <MSBuildAllProjects>$(MSBuildThisFileFullPath);$(MSBuildAllProjects)</MSBuildAllProjects>
   </PropertyGroup>
 
-  <ItemGroup Label="Package Versions used by this repository">  
+  <ItemGroup Label="Package Versions used by this repository">
     <!--
       When referencing a new package, update this list with a matching Update and the desired Version.  When updating
       a package, remove the Version from an individual project and update the Version in this file instead.
@@ -14,7 +14,7 @@
     <PackageReference Update="StyleCop.Analyzers" Version="[1.1.118]" />
     <PackageReference Update="Microsoft.CodeAnalysis.Analyzers" Version="[3.3.3]" />
     <PackageReference Update="Microsoft.CodeAnalysis.CSharp" Version="[4.3.0]" />
-   
+
     <PackageReference Update="Microsoft.Win32.Registry" Version="[4.7.0]" />
     <PackageReference Update="System.Collections" Version="[4.3.0]" />
     <PackageReference Update="System.Collections.Immutable" Version="[1.7.1]" />
