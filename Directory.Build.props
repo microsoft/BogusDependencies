@@ -31,7 +31,6 @@
   <ItemGroup>
     <!-- StyleCop, Roslyn analyzers -->
     <PackageReference Include="StyleCop.Analyzers" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" PrivateAssets="All" />
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" />
   </ItemGroup>
 

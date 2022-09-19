@@ -1,0 +1,174 @@
+root = true
+
+# All files
+[*]
+end_of_line = lf
+trim_trailing_whitespace = true
+# insert_final_newline = true
+
+[*.{*proj,props,targets}]
+indent_style = space
+indent_size = 2
+
+# Rules for Azure ML Infra
+# Description: Code analysis rules for Azure ML Infra.
+
+# Code files
+[*.{cs,vb}]
+
+
+# Types that own disposable fields should be disposable
+dotnet_diagnostic.CA1001.severity = suggestion
+
+# Enum storage should be Int32
+dotnet_diagnostic.CA1028.severity = suggestion
+
+# Do not catch general exception types
+dotnet_diagnostic.CA1031.severity = suggestion
+
+# Don't require all Exception ctors in test assemblies
+dotnet_diagnostic.CA1032.severity = suggestion
+
+# Nested types should not be visible
+dotnet_diagnostic.CA1034.severity = suggestion
+
+# Static holder types should be Static or NotInheritable
+dotnet_diagnostic.CA1052.severity = suggestion
+
+# URI parameters should not be strings
+dotnet_diagnostic.CA1054.severity = suggestion
+
+# URI properties should not be strings
+dotnet_diagnostic.CA1056.severity = suggestion
+
+# Validate arguments of public methods
+dotnet_diagnostic.CA1062.severity = suggestion
+
+# Implement IDisposable correctly
+dotnet_diagnostic.CA1063.severity = suggestion
+
+# Don't require exceptions to be public
+dotnet_diagnostic.CA1064.severity = suggestion
+
+# Do not raise exceptions in unexpected locations
+dotnet_diagnostic.CA1065.severity = suggestion
+
+# CancellationToken parameters must come last
+dotnet_diagnostic.CA1068.severity = suggestion
+
+# Do not pass literals as localized parameters
+dotnet_diagnostic.CA1303.severity = suggestion
+
+# Specify CultureInfo
+dotnet_diagnostic.CA1304.severity = suggestion
+
+# Specify IFormatProvider
+dotnet_diagnostic.CA1305.severity = suggestion
+
+# Specify StringComparison
+dotnet_diagnostic.CA1307.severity = suggestion
+
+# Normalize strings to uppercase
+dotnet_diagnostic.CA1308.severity = suggestion
+
+# Use ordinal StringComparison
+dotnet_diagnostic.CA1309.severity = suggestion
+
+# Permit underscores in method names
+dotnet_diagnostic.CA1707.severity = suggestion
+
+# Identifiers should have correct suffix
+dotnet_diagnostic.CA1710.severity = suggestion
+
+# Flags enums should have plural names
+dotnet_diagnostic.CA1714.severity = suggestion
+
+# Identifiers should have correct prefix
+dotnet_diagnostic.CA1715.severity = suggestion
+
+# Identifiers should not match keywords
+dotnet_diagnostic.CA1716.severity = suggestion
+
+# Only FlagsAttribute enums should have plural names
+dotnet_diagnostic.CA1717.severity = suggestion
+
+# Property names should not match get methods
+dotnet_diagnostic.CA1721.severity = suggestion
+
+# Type names should not match namespaces
+dotnet_diagnostic.CA1724.severity = suggestion
+
+# Review unused parameters
+dotnet_diagnostic.CA1801.severity = suggestion
+
+# Unused local variables
+dotnet_diagnostic.CA1804.severity = warning
+
+# Do not initialize unnecessarily
+dotnet_diagnostic.CA1805.severity = suggestion
+
+# Do not ignore method results
+dotnet_diagnostic.CA1806.severity = suggestion
+
+# Initialize reference type static fields inline
+dotnet_diagnostic.CA1810.severity = suggestion
+
+# Private methods that are not called from any other code
+dotnet_diagnostic.CA1811.severity = warning
+
+# Don't suggest static methods or classes in examples assembly
+dotnet_diagnostic.CA1812.severity = suggestion
+
+# Override equals and operator equals on value types
+dotnet_diagnostic.CA1815.severity = suggestion
+
+# Call GC.SuppressFinalize correctly
+dotnet_diagnostic.CA1816.severity = suggestion
+
+# Properties should not return arrays
+dotnet_diagnostic.CA1819.severity = suggestion
+
+# Don't warn for potential static classes/methods
+dotnet_diagnostic.CA1822.severity = suggestion
+
+# Avoid unused private fields
+dotnet_diagnostic.CA1823.severity = warning
+
+# Use string.Contains(char) instead of string.Contains(string) with single characters
+dotnet_diagnostic.CA1847.severity = error
+
+# Dispose objects before losing scope
+dotnet_diagnostic.CA2000.severity = suggestion
+
+# Consider calling ConfigureAwait on the awaited task
+dotnet_diagnostic.CA2007.severity = suggestion
+
+# Do not create tasks without passing a TaskScheduler
+dotnet_diagnostic.CA2008.severity = suggestion
+
+# Instantiate argument exceptions correctly
+dotnet_diagnostic.CA2208.severity = suggestion
+
+# Disposable fields should be disposed
+dotnet_diagnostic.CA2213.severity = suggestion
+
+# Operator overloads have named alternates
+dotnet_diagnostic.CA2225.severity = suggestion
+
+# Collection properties should be read only
+dotnet_diagnostic.CA2227.severity = suggestion
+
+# Pass System.Uri objects instead of strings
+dotnet_diagnostic.CA2234.severity = suggestion
+
+# Do Not Use Broken Cryptographic Algorithms
+dotnet_diagnostic.CA5351.severity = suggestion
+
+# Name can be simplified
+dotnet_diagnostic.IDE0003.severity = none
+
+# Remove unnecessary import
+dotnet_diagnostic.IDE0005.severity = error
+
+# Private member is unused
+dotnet_diagnostic.IDE0051.severity = error
