@@ -18,7 +18,9 @@ For each bogus input, mapping to the source of the input can find one of:
 * An unneeded C++ SDK library reference that could be cut, reducing link I/O and CPU.
 
 ## Related Work
-https://github.com/dfederm/ReferenceTrimmer wraps an MSBuild execution and compares the assemblies pulled forward by RAR (MSBuild ResolveAssemblyReferences) to those referenced from proj-to-proj and package references, and recommends removals. The work in this repo can be combined with that work to make its recommendations much more robust, as without the Roslyn feature noted above, the compiler and RAR will leave behind referenced assemblies where only const values or interfaces were used, resulting in broken builds where packages or ProjectReferences were removed unnecessarily.
+* https://github.com/dfederm/ReferenceTrimmer wraps an MSBuild execution and compares the assemblies pulled forward by RAR (MSBuild ResolveAssemblyReferences) to those referenced from proj-to-proj and package references, and recommends removals. The work in this repo can be combined with that work to make its recommendations much more robust, as without the Roslyn feature noted above, the compiler and RAR will leave behind referenced assemblies where only const values or interfaces were used, resulting in broken builds where packages or ProjectReferences were removed unnecessarily.
+
+* https://github.com/KirillOsenkov/CodeCleanupTools is a multi-tool with an option to clean up unused references.
 
 # Contributing
 See [Contributing.md](./Contributing.md).
